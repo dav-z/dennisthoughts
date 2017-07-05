@@ -127,5 +127,6 @@ h1 {
 }
 .dot,
 .profileBody {
-  margin-left: 190px;
+  margin: auto;
+  width: 70%;
 }
