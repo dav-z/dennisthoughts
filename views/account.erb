@@ -1,31 +1,49 @@
-<div class="profileBody">
-  <h2>Your Account information</h2>
-	<form method="post">
-	<table>
-		<tr>
-			<th>Field</th>
-			<th>Value</th>
-		</tr>
-		<tr>
-			<td>First Name</td>
-			<td><input name="first_name" value="<%= @current_user.first_name %>" ></td>
-		</tr>
-		<tr>
-			<td>Last Name</td>
-			<td><input name="last_name" value="<%= @current_user.last_name %>" ></td>
-		</tr>
-		<tr>
-			<td>Email</td>
-			<td><input name="email" disabled="true" value="<%= @current_user.email %>"></td>
-		</tr>
-		<tr>
-			<td>Current Password</td>
-			<td><input type="password" name="password"></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" value="Update Profile"></td>
-		</tr>
-	</table><br>
-  <a href="/<%= @current_user.id %>/destroy">Delete Account.</a>
-	</form>
-</div>
+<% if @current_user %>
+  <div class="profileBody">
+    <h2>Your Account information</h2>
+  	<form method="post">
+  	<table>
+  		<tr>
+  			<th>Field</th>
+  			<th>Value</th>
+  		</tr>
+  		<tr>
+  			<td>First Name</td>
+  			<td><input name="first_name" value="<%= @current_user.first_name %>" ></td>
+  		</tr>
+  		<tr>
+  			<td>Last Name</td>
+  			<td><input name="last_name" value="<%= @current_user.last_name %>" ></td>
+  		</tr>
+  		<tr>
+  			<td>Email</td>
+  			<td><input name="email" disabled="true" value="<%= @current_user.email %>"></td>
+  		</tr>
+      <tr>
+        <td>Bio</td>
+        <td><input name="bio" value="<%= @current_user.bio %>"></td>
+      </tr>
+  		<tr>
+  			<td>Current Password</td>
+  			<td><input type="password" name="password"></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2"><input type="submit" value="Update Profile"></td>
+  		</tr>
+  	</table><br>
+    <a href="/<%= @current_user.id %>/destroy">Delete Account.</a>
+  	</form>
+  </div>
+<% else %>
+  <div class="signinbox">
+
+    <form class="signinform" action="/sign-in" method="post">
+      <label>Sign In</label><br><br>
+      <input type="text" name="username" placeholder="username"><br>
+      <input type="password" name="password" placeholder="password"><br>
+      <input type="submit" value="Log In">
+    </form>
+    <br>
+    <a href="/signup">I don't have an account.</a>
+  </div>
+<% end %>

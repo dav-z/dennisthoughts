@@ -38,6 +38,7 @@ post '/sign-up' do
             last_name: params[:last_name],
             email: params[:email],
             username: params[:username],
+            bio: params[:bio],
             password: params[:password])
   if @user.save
     redirect '/signin'
@@ -93,7 +94,8 @@ post '/account' do
   if @current_user.password == params[:password]
     @current_user.update(
       first_name: params[:first_name],
-      last_name: params[:last_name]
+      last_name: params[:last_name],
+      bio: params[:bio]
     )
     flash[:message] = "Thanks for the update, #{params[:first_name]}"
   # you're an imposter!!
@@ -116,7 +118,7 @@ get '/:id/destroy' do
     redirect '/'
   else
     flash[:message] = "Could not delete account!"
-    redirect '/'
+    redirect '/account'
   end
 end
 
