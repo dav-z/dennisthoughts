@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Myspace</title>
+    <title>Dennis Thoughts - Home</title>
     <link rel="icon" href="https://maxcdn.icons8.com/Share/icon/p1em/Logos//myspace1600.png">
     <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
@@ -26,7 +26,17 @@
         <input type="submit" >
       </form>
     </div>
-    <h1>Hello</h1>
+    <header>
+      <nav>
+  			<ul class="navUl">
+  			  <% while @n < @nav.length %>
+    				<li> <a class ="navLink" href="<%= @nav[@n][:link] %>"><%= @nav[@n][:text] %></a></li>
+    				<% @n += 1 %>
+  				<% end %>
+  				<% @n = 0 %>
+  			</ul>
+  		</nav>
+    </header>
     <% else %>
     <div class="topblue">
       <form class="signinform">

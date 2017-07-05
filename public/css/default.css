@@ -8,6 +8,9 @@ body{
   margin: 0;
   padding: 0;
 }
+.navUl {
+  list-style: none;
+}
 .topblue {
   height: 150px;
   background-color: blue;
