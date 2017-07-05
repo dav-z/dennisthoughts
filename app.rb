@@ -14,8 +14,6 @@ require './models'
 
 before do
   current_user
-  @n = 0
-  @nav = [{link: "/", text: "Home"},{link: "/p/profile", text: "Profile"},{link: "/", text: "Random User Posts"},{link: "/faq", text: "FAQ"}]
 end
 
 get '/' do

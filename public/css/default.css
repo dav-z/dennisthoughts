@@ -6,9 +6,6 @@ body{
   margin: 0;
   padding: 0;
 }
-.navUl {
-  list-style: none;
-}
 .topblue {
   height: 70px;
   background-color: lightgrey;
@@ -27,8 +24,8 @@ body{
   text-align: center;
 }
 .navbar {
-  background-color: dodgerblue;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   text-align: center;
   width: 70%;
   margin: auto;
