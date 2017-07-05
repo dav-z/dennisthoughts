@@ -17,24 +17,8 @@
     <% end %>
     <% unless @current_user %>
     <div class="topblue">
-      <form class="signinform" action="/sign-in" method="post">
-        <label>Sign In</label>
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit" >
-      </form>
+      <a href="/signin"><button type="button" name="button">Sign In</button></a>
     </div>
-    <nav>
-			<ul class="navUl">
-        <div>
-          <% while @n < @nav.length %>
-          <li> <a class ="navLink" href="<%= @nav[@n][:link] %>"><%= @nav[@n][:text] %></a></li>
-          <% @n += 1 %>
-          <% end %>
-          <% @n = 0 %>
-        </div>
-			</ul>
-		</nav>
     <% else %>
     <div class="topblue">
       <form class="signinform">
@@ -43,6 +27,9 @@
       <img src="http://blog.visme.co/wp-content/uploads/2015/10/color1.jpg">
     </div>
     <% end %>
+    <div class="navbar">
+        <a href="/">Home</a> | <a href="/p/profile">Profile</a> | <a href="/faq">FAQ</a> | <a href="/">Random</a>
+    </div>
       <%= yield %>
   </body>
 </html>
