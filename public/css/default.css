@@ -115,5 +115,6 @@ h1 {
   margin: 0;
 }
 .profileBody {
-  margin-left: 190px;
+  margin: auto;
+  width: 70%;
 }
