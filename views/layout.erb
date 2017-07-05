@@ -5,26 +5,24 @@
     <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
   <body>
-    <% if flash[:notice] %>
-      <div class="flash notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="flash alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-    <% unless @current_user %>
     <div class="topblue">
-      <a href="/signin"><button type="button" name="button">Sign In</button></a>
-    </div>
-    <% else %>
-    <div class="topblue">
-      <form class="signinform">
-      <label><%= @current_user.username %></label><a href="/logout"><button type="button" name="button">Logout</button></a>
-      </form>
-      <img src="http://blog.visme.co/wp-content/uploads/2015/10/color1.jpg">
+      <% if flash[:notice] %>
+        <div class="flash notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <% unless @current_user %>
+        <a href="/signin"><button type="button" name="button">Sign In</button></a>
+      </div>
+      <% else %>
+        <form class="signinform">
+        <label><%= @current_user.username %></label><a href="/logout"><button type="button" name="button">Logout</button></a>
+        </form>
     </div>
     <% end %>
     <div class="navbar">
