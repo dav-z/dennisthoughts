@@ -81,3 +81,15 @@ get '/:username/:post_id' do
   @post = Post.find( params[:post_id] )
   erb :post
 end
+
+get '/post/:id/delete' do
+  @post = Post.find(params[:id])
+  if @post.user_id != @current_user.id
+    flash[:message] = "This is not your post!"
+  elsif @post.destroy
+    flash[:message] = "Message deleted."
+    redirect '/'
+  else
+    flash[:message] = "Could not delete post!"
+  end
+end
