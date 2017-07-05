@@ -3,7 +3,7 @@ html {
   min-height: 100%;
 }
 body{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 .topblue {
@@ -102,4 +102,7 @@ h1 {
 }
 .leftright p{
   margin: 0;
+}
+.profileBody {
+  margin-left: 190px;
 }
