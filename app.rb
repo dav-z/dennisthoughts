@@ -37,10 +37,10 @@ post '/' do
             body: params[:body],
             user_id: @current_user.id )
   if @post.save
-    flash[:message] = "Posted!"
+    flash[:message] = "Got your post!  Nice work!"
     redirect '/'
   else
-    flash[:message] = "Sorry, your post sucked and we didn't post it."
+    flash[:message] = "Unable to save your post :'("
     redirect '/'
   end
 end
@@ -75,4 +75,9 @@ end
 get '/:username' do
   @user = User.find_by(username:params[:username])
   erb :profile
+end
+get '/:username/:post_id' do
+  @user = User.find_by(username:params[:username])
+  @post = Post.find( params[:post_id] )
+  erb :post
 end
