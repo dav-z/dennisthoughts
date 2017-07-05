@@ -1,14 +1,30 @@
-<div class="profileBody">
-  <div class="userInfo">
-    <h2><a href="/<%= @user.username %>">@<%= @user.username %></a></h2>
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p>Bio: </p>
-  </div>
-  <div class="posts">
-    <div class="onepost">
-      <h2><%= @post.title %></h2>
-      <p><%= @post.body %></p>
-      <a href="/post/<%= @post.id %>/delete">Delete</a>
+<% if @current_user.id == @post.user_id %>
+  <div class="profileBody">
+    <div class="userInfo">
+      <h2><a href="/<%= @user.username %>">@<%= @user.username %></a></h2>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <p>Bio: </p>
+    </div>
+    <div class="posts">
+      <div class="onepost">
+        <h2><%= @post.title %></h2>
+        <p><%= @post.body %></p>
+        <a href="/post/<%= @post.id %>/delete">Delete</a>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="profileBody">
+    <div class="userInfo">
+      <h2><a href="/<%= @user.username %>">@<%= @user.username %></a></h2>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <p>Bio: </p>
+    </div>
+    <div class="posts">
+      <div class="onepost">
+        <h2><%= @post.title %></h2>
+        <p><%= @post.body %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

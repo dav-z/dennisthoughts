@@ -6,7 +6,7 @@
   </div>
   <div class="posts">
     <h3>Posts by <%= @user.first_name %></h3>
-    <% @user.posts.each do |post| %>
+    <% @user.posts.order( id: :desc ).each do |post| %>
     		<a href="/<%= @user.username %>/<%= post.id %>">
           <div class="onepost">
             <strong><%= post.title %><br></strong>
