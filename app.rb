@@ -36,13 +36,7 @@ post '/' do
   @post = Post.new( title: params[:title],
             body: params[:body],
             user_id: @current_user.id )
-  if @post.save
-    flash[:message] = "Posted!"
-    redirect '/'
-  else
-    flash[:message] = "Sorry, your post sucked and we didn't post it."
-    redirect '/'
-  end
+  redirect '/'
 end
 
 get '/logout' do
@@ -75,4 +69,9 @@ end
 get '/:username' do
   @user = User.find_by(username:params[:username])
   erb :profile
+end
+get '/:username/:post_id' do
+  @user = User.find_by(username:params[:username])
+  @post = Post.find( params[:post_id] )
+  erb :post
 end
