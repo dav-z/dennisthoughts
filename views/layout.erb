@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Myspace</title>
-    <link rel="icon" href="https://maxcdn.icons8.com/Share/icon/p1em/Logos//myspace1600.png">
     <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
   <body>
@@ -19,14 +17,8 @@
     <% end %>
     <% unless @current_user %>
     <div class="topblue">
-      <form class="signinform" action="/sign-in" method="post">
-        <label>Sign In</label>
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit" >
-      </form>
+      <a href="/signin"><button type="button" name="button">Sign In</button></a>
     </div>
-    <h1>Hello</h1>
     <% else %>
     <div class="topblue">
       <form class="signinform">
@@ -34,10 +26,10 @@
       </form>
       <img src="http://blog.visme.co/wp-content/uploads/2015/10/color1.jpg">
     </div>
-    <div class="navbar">
-      <p>Home | Browse | Search | Invite | Film | Mail | Blog | Favorites | Forum | Groups | Events | Videos | Music | Classifieds</p>
-    </div>
     <% end %>
+    <div class="navbar">
+        <a href="/">Home</a> | <a href="/p/profile">Profile</a> | <a href="/faq">FAQ</a> | <a href="/">Random</a>
+    </div>
       <%= yield %>
   </body>
 </html>

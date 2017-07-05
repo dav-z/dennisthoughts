@@ -36,6 +36,14 @@ get '/logout' do
   redirect '/'
 end
 
+get '/p/profile' do
+  erb :profile
+end
+
+get '/faq' do
+  erb :faq
+end
+
 def current_user
   if session[:user_id]
     @current_user = User.find(session[:user_id])
@@ -43,4 +51,12 @@ def current_user
 end
 get '/faq' do
   erb :faq
+end
+
+get '/signin' do
+  erb :signin
+end
+
+get '/signup' do
+  erb :signup
 end
