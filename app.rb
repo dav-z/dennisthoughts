@@ -17,6 +17,7 @@ before do
 end
 
 get '/' do
+  @posts = Post.all
   erb :home
 end
 
@@ -37,10 +38,8 @@ post '/' do
             body: params[:body],
             user_id: @current_user.id )
   if @post.save
-    flash[:message] = "Got your post!  Nice work!"
     redirect '/'
   else
-    flash[:message] = "Unable to save your post :'("
     redirect '/'
   end
 end
