@@ -17,7 +17,7 @@ before do
 end
 
 get '/' do
-  @posts = Post.all
+  @posts = Post.order( id: :desc )
   erb :home
 end
 
@@ -98,7 +98,6 @@ get '/post/:id/delete' do
   @post = Post.find(params[:id])
   if @post.user_id != @current_user.id
     redirect '/'
-    flash[:message] = "This is not your post!"
   elsif @post.destroy
     flash[:message] = "Message deleted."
     redirect '/'
