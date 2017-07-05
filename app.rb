@@ -41,7 +41,7 @@ get '/p/profile' do
 end
 
 get '/faq' do
-  erb :home
+  erb :faq
 end
 
 def current_user
