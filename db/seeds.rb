@@ -9,8 +9,14 @@ User.create([
   {id: 5, first_name: 'David', last_name: 'Zheng', email: 'dennis@itsalwayssunny.com', username: 'david', password: '134><DFNAL!#$3'},
   {id: 6, first_name: 'Victor', last_name: 'Ganda', email: 'Victor@liverpoolfc.com', username: 'victor', password: 'manusucks'},
   {id: 7, first_name: 'Erin', last_name: 'Young', email: 'erin@young.com', username: 'erin', password: 'westvirginiaisthebestvirginia'},
-  {id: 8, first_name: 'Steven', last_name: 'Velez-Garcia', email: 'steven@steven.com', username: 'steven', password: '#!$kldfalk2343'},
+  {id: 8, first_name: 'Steven', last_name: 'Velez-Garcia', email: 'steven@steven.com', username: 'steven', password: '1234'},
   {id: 9, first_name: 'Katy', last_name: 'Pola', email: 'katy@pola.com', username: 'katy', password: 'paperpaper'},
   {id: 10, first_name: 'Julia', last_name: 'Kopyeva', email: 'julia@k.ru', username: 'julia', password: 'designsbyjulia'},
   {id: 11, first_name: 'Nick', last_name: 'Fehlinger', email: 'nick@lodeon.com', username: 'nick', password: 'supersecret'}
+])
+
+Post.create([
+  {user_id: 8, title: 'Ducks are great', body: 'Ducks are the best pets to operate on.  They love bread, so they always have money to pay on time.'},
+  {user_id: 8, title: 'Johnny Nmemonic is the Greatest Movie of our time', body: 'Johnny Nmemonic needs his room service.  This tour de fource from Keanu Reeves forever transformed the genre of futuristic action thrillers.  The dolphin hacker single-finnedly convinced me to devote my energy towards attaining its level of sonar coding dominance.  One day I will also fry Dolph Lundgren with the power of my coding abilities.'},
+  {user_id: 8, title: 'What is all this?', body: 'This is madness, madness I tell you!'}
 ])

@@ -1,18 +1,11 @@
-<div class="container">
-  <div class="left">
-    <div class="leftleft">
-      <img src="/images/placeholder.png" width="100%">
-    </div>
-    <div class="leftright">
-
-    </div>
+<div class="profileBody">
+  <div class="userInfo">
+    <h4>User Info</h4>
+    <p>Name: <%= @current_user.first_name %> <%= @current_user.last_name %></p>
+    <p>Username: <%= @current_user.username %></p>
+    <p>Bio: </p>
   </div>
-  <div class="right">
-    <div class="follow">
-
-    </div>
-    <div class="aboutme">
-
-    </div>
+  <div class="posts">
+    <h4>Posts by <%= @current_user.first_name %></h4>
   </div>
 </div>
