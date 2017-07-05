@@ -1,11 +1,16 @@
 <div class="profileBody">
   <div class="userInfo">
-    <h4>User Info</h4>
-    <p>Name: <%= @current_user.first_name %> <%= @current_user.last_name %></p>
-    <p>Username: <%= @current_user.username %></p>
+    <h2>@<%= @user.username %></h4>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
     <p>Bio: </p>
   </div>
   <div class="posts">
-    <h4>Posts by <%= @current_user.first_name %></h4>
+    <h3>Posts by <%= @user.first_name %></h3>
+    <% @user.posts.each do |post| %>
+    		<div class="onepost">
+          <strong><%= post.title %><br></strong>
+          <%= post.body %>
+        </div>
+    <% end %>
   </div>
 </div>

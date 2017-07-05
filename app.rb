@@ -13,7 +13,7 @@ set :database, {adapter: "sqlite3", database: "db/hack.db"}
 require './models'
 
 before do
-  current_user
+  @current_user = session[:user_id] ? User.find(session[:user_id]) :nil
 end
 
 get '/' do
@@ -29,6 +29,19 @@ post '/sign-in' do
   else
     flash[:alert] = "Nah, try again."
     redirect "/signin"
+  end
+end
+
+post '/' do
+  @post = Post.new( title: params[:title],
+            body: params[:body],
+            user_id: @current_user.id )
+  if @post.save
+    flash[:message] = "Posted!"
+    redirect '/'
+  else
+    flash[:message] = "Sorry, your post sucked and we didn't post it."
+    redirect '/'
   end
 end
 
