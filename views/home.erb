@@ -1,5 +1,36 @@
-<form class="newpost" method="post">
-  <input name="title" placeholder="Title">
-  <textarea name="body" placeholder="Some Shitty Thoughts..."></textarea><br>
-  <div class="submitbutton"><input type="submit" value="Post"></div>
-</form>
+<% if @current_user %>
+  <form class="newpost" method="post">
+    <input name="title" placeholder="Title">
+    <textarea name="body" placeholder="Some Shitty Thoughts..."></textarea><br>
+    <div class="submitbutton"><input type="submit" value="Post"></div>
+  </form>
+  <div class="profileBody">
+    <div class="posts">
+      <h3>Posts</h3>
+      <% @posts.each do |post| %>
+          <a href="/<%= post.user.username %>/<%= post.id %>">
+            <div class="onepost">
+              <strong><%= post.title %><br></strong>
+              <%= post.body %><br>
+              by <strong><em>@<%= post.user.username %></em></strong>
+            </div>
+          </a>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="profileBody">
+    <div class="posts">
+      <h3>Posts</h3>
+      <% @posts.each do |post| %>
+          <a href="/<%= post.user.username %>/<%= post.id %>">
+            <div class="onepost">
+              <strong><%= post.title %><br></strong>
+              <%= post.body %><br>
+              by <strong><em>@<%= post.user.username %></em></strong>
+            </div>
+          </a>
+      <% end %>
+    </div>
+  </div>
+<% end %>
