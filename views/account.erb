@@ -1,0 +1,31 @@
+<div class="profileBody">
+  <h2>Your Account information</h2>
+	<form method="post">
+	<table>
+		<tr>
+			<th>Field</th>
+			<th>Value</th>
+		</tr>
+		<tr>
+			<td>First Name</td>
+			<td><input name="first_name" value="<%= @current_user.first_name %>" ></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td><input name="last_name" value="<%= @current_user.last_name %>" ></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input name="email" disabled="true" value="<%= @current_user.email %>"></td>
+		</tr>
+		<tr>
+			<td>Current Password</td>
+			<td><input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Update Profile"></td>
+		</tr>
+	</table><br>
+  <a href="/<%= @current_user.id %>/destroy">Delete Account.</a>
+	</form>
+</div>
