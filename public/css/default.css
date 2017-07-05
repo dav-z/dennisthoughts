@@ -3,7 +3,7 @@ html {
   min-height: 100%;
 }
 body{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 .topblue {
@@ -30,8 +30,16 @@ body{
   width: 70%;
   margin: auto;
 }
-.navbar p {
+.navbar ul {
+  list-style: none;
   margin: 0;
+}
+.navbar li {
+  display: inline;
+  padding: 5%;
+}
+.topbutton {
+  text-align: right;
 }
 .signinbox {
   padding: 30px;
@@ -47,6 +55,9 @@ body{
   width: 100%;
   text-align: center;
 }
+.signinform input {
+  width: 300px;
+}
 h1 {
   text-align: center;
 }
@@ -55,7 +66,7 @@ h1 {
   text-align: right;
 }
 .container {
-  margin: auto;
+  margin: 10px auto;
   width: 70%;
   background-color: white;
   height: 100%;
@@ -65,7 +76,7 @@ h1 {
   text-align: left;
   display: inline-block;
   width: 35%;
-  margin: auto;
+  margin: 10px auto;
   padding-left: 30px;
 }
 .left h4 {
@@ -114,6 +125,7 @@ h1 {
   font-size: 30px;
   letter-spacing: 3px;
 }
-.dot {
-
+.dot,
+.profileBody {
+  margin-left: 190px;
 }

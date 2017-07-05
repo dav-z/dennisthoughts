@@ -25,19 +25,16 @@ post '/sign-in' do
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "You're logged in."
+    redirect "/"
   else
     flash[:alert] = "Nah, try again."
+    redirect "/signin"
   end
-  redirect "/"
 end
 
 get '/logout' do
   session[:user_id] = nil
   redirect '/'
-end
-
-get '/p/profile' do
-  erb :profile
 end
 
 get '/faq' do
@@ -49,6 +46,7 @@ def current_user
     @current_user = User.find(session[:user_id])
   end
 end
+
 get '/faq' do
   erb :faq
 end
@@ -59,4 +57,9 @@ end
 
 get '/signup' do
   erb :signup
+end
+
+get '/:username' do
+  @user = User.find_by(username:params[:username])
+  erb :profile
 end

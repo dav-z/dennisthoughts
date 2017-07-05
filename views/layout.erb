@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Dennis Thoughts</title>
     <meta charset="utf-8">
+    <link rel="icon" href="https://static1.squarespace.com/static/550ccbdde4b079aa9844df40/56b4661037013b0f50de26ff/56b4664127d4bd06b90968b8/1454663235064/dt.png">
     <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
   <body>
-    <% if flash[:notice] %>
-      <div class="flash notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="flash alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-    <% unless @current_user %>
     <div class="topblue">
-      <a href="/signin"><button type="button" name="button">Sign In</button></a>
+      <% if flash[:notice] %>
+        <div class="flash notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <% unless @current_user %>
+        <div class="topbutton">
+          <a href="/signin"><button type="button" name="button">Sign In</button></a>
+        </div>
+      <% else %>
+        <div class="topbutton">
+          <span><%= @current_user.username %></span><a href="/logout"><button type="button" name="button">Logout</button></a>
+        </div>
+      <% end %>
     </div>
-    <% else %>
-    <div class="topblue">
-      <form class="signinform">
-      <label><%= @current_user.username %></label><a href="/logout"><button type="button" name="button">Logout</button></a>
-      </form>
-      <img src="http://blog.visme.co/wp-content/uploads/2015/10/color1.jpg">
-    </div>
-    <% end %>
     <div class="navbar">
-        <a href="/">Home</a> | <a href="/p/profile">Profile</a> | <a href="/faq">FAQ</a> | <a href="/">Random</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+      <% if @current_user %>
+        <li><a href="/<%= @current_user.username %>">Profile</a></li>
+      <% else %>
+        <li><a href="/signin">Profile</a></li>
+      <% end %>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/">Random</a></li>
+      </ul>
     </div>
       <%= yield %>
   </body>
