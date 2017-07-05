@@ -2,7 +2,7 @@
   <div class="userInfo">
     <h2><a href="/<%= @user.username %>">@<%= @user.username %></a></h2>
     <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p>Bio: </p>
+    <p><%= @user.bio %></p>
   </div>
   <div class="posts">
     <h3>Posts by <%= @user.first_name %></h3>
