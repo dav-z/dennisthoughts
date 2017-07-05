@@ -7,14 +7,20 @@ body{
   padding: 0;
 }
 .topblue {
-  height: 100px;
-  background-image: url('/images/logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 70px;
   background-color: lightgrey;
   width: 70%;
   top: 0;
   margin: auto;
+  text-align: center;
+}
+.topblue img {
+  height: 80%;
+  width: 80%;
+}
+.extended {
+  border: 1px solid black;
+  margin-top: 10px;
   text-align: center;
 }
 .navbar {
@@ -30,7 +36,7 @@ body{
 }
 .navbar li {
   display: inline;
-  padding: 0 5%;
+  padding: 5%;
 }
 .topbutton {
   text-align: right;
@@ -116,50 +122,10 @@ h1 {
   line-height: 30px;
 }
 .title {
-  font-size: 30px;
+  font-size: 35px;
   letter-spacing: 3px;
 }
+
 .profileBody {
-  margin: auto;
-  width: 70%;
-  text-align: center;
-}
-.userInfo {
-  background-color: rgba(220,220,220,0.2);
-  margin: 10px auto;
-  padding: 10px;
-}
-.posts {
-  margin: auto;
-  text-align: center;
-  border: 1px solid black;
-}
-.onepost {
-  background-color: rgba(220,220,220,0.2);
-  margin: 10px auto;
-  padding: 10px;
-  width: 90%;
-}
-.newpost {
-  width: 60%;
-  margin: 10px auto;
-  padding: 20px;
-  background-color: rgba(220,220,220,0.2);
-  text-align: center;
-}
-.newpost textarea {
-  width: 90%;
-  height: 100px;
-  resize: none;
-}
-.newpost input {
-  width: 90%;
-}
-.submitbutton {
-  text-align: center;
-  width: 90%;
-  margin: auto;
-}
-.submitbutton input {
-  width: 100%;
+  margin-left: 190px;
 }
