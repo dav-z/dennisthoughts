@@ -51,3 +51,11 @@ def current_user
     @current_user = User.find(session[:user_id])
   end
 end
+
+get '/signin' do
+  erb :signin
+end
+
+get '/signup' do
+  erb :signup
+end
