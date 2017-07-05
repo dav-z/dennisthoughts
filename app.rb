@@ -40,9 +40,9 @@ post '/sign-up' do
             username: params[:username],
             password: params[:password])
   if @user.save
-    redirect '/'
+    redirect '/signin'
   else
-    redirect '/'
+    redirect '/signup'
   end
 end
 
@@ -84,10 +84,42 @@ get '/signup' do
   erb :signup
 end
 
+get '/account' do
+  erb :account
+end
+
+post '/account' do
+  # if it's actually still them
+  if @current_user.password == params[:password]
+    @current_user.update(
+      first_name: params[:first_name],
+      last_name: params[:last_name]
+    )
+    flash[:message] = "Thanks for the update, #{params[:first_name]}"
+  # you're an imposter!!
+  else
+    flash[:message] = "Looks like you gave us an incorrect password.  Hack blocked!!"
+  end
+  redirect '/account'
+end
+
 get '/:username' do
   @user = User.find_by(username:params[:username])
   erb :profile
 end
+
+get '/:id/destroy' do
+  @user = User.find(params[:id])
+  if @user.destroy
+    flash[:message] = "Account deleted."
+    session[:user_id] = nil
+    redirect '/'
+  else
+    flash[:message] = "Could not delete account!"
+    redirect '/'
+  end
+end
+
 get '/:username/:post_id' do
   @user = User.find_by(username:params[:username])
   @post = Post.find( params[:post_id] )
