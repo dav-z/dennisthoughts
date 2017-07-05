@@ -114,6 +114,18 @@ h1 {
 .leftright p{
   margin: 0;
 }
+.faq {
+  margin: auto;
+  font-size: 22px;
+  width: 70%;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+.title {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+.dot,
 .profileBody {
   margin-left: 190px;
 }
