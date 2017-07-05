@@ -27,6 +27,7 @@ post '/sign-in' do
     flash[:notice] = "You're logged in."
   else
     flash[:alert] = "Nah, try again."
+    redirect "/signin"
   end
   redirect "/"
 end
