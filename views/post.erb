@@ -1,4 +1,4 @@
-<% if @current_user.id == @post.user_id %>
+<% if @current_user && @current_user.id == @post.user_id %>
   <div class="profileBody">
     <div class="userInfo">
       <h2><a href="/<%= @user.username %>">@<%= @user.username %></a></h2>
