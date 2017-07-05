@@ -33,6 +33,19 @@ post '/sign-in' do
   end
 end
 
+post '/sign-up' do
+  @user = User.new( first_name: params[:first_name],
+            last_name: params[:last_name],
+            email: params[:email],
+            username: params[:username],
+            password: params[:password])
+  if @user.save
+    redirect '/'
+  else
+    redirect '/'
+  end
+end
+
 post '/' do
   @post = Post.new( title: params[:title],
             body: params[:body],
