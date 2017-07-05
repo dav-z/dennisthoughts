@@ -36,7 +36,13 @@ post '/' do
   @post = Post.new( title: params[:title],
             body: params[:body],
             user_id: @current_user.id )
-  redirect '/'
+  if @post.save
+    flash[:message] = "Got your post!  Nice work!"
+    redirect '/'
+  else
+    flash[:message] = "Unable to save your post :'("
+    redirect '/'
+  end
 end
 
 get '/logout' do
