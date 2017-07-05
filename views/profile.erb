@@ -7,10 +7,11 @@
   <div class="posts">
     <h3>Posts by <%= @user.first_name %></h3>
     <% @user.posts.each do |post| %>
-    		<div class="onepost">
-          <strong><a href="/<%= @user.username %>/<%= post.id %>"><%= post.title %></a><br></strong>
-          <%= post.body %>
-        </div>
+    		<a href="/<%= @user.username %>/<%= post.id %>">
+          <div class="onepost">
+            <strong><%= post.title %></a><br></strong>
+            <%= post.body %>
+          </div></a>
     <% end %>
   </div>
 </div>
