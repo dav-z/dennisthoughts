@@ -8,7 +8,7 @@
     <h3>Posts by <%= @user.first_name %></h3>
     <% @user.posts.each do |post| %>
     		<div class="onepost">
-          <strong><%= post.title %><br></strong>
+          <strong><a href="/<%= @user.username %>/<%= post.id %>"><%= post.title %></a><br></strong>
           <%= post.body %>
         </div>
     <% end %>
