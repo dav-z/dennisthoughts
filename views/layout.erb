@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dennis Thoughts</title>
-    <link rel="icon" href="https://pbs.twimg.com/profile_images/559753899800674305/LC5al0Lu.jpeg">
     <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
   <body>
@@ -19,8 +17,22 @@
     <% end %>
     <% unless @current_user %>
     <div class="topblue">
-      <a href="/signin"><button type="button">Sign In</button></a>
+      <form class="signinform" action="/sign-in" method="post">
+        <label>Sign In</label>
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" >
+      </form>
     </div>
+    <nav>
+			<ul class="navUl">
+			  <% while @n < @nav.length %>
+  				<li> <a class ="navLink" href="<%= @nav[@n][:link] %>"><%= @nav[@n][:text] %></a></li>
+  				<% @n += 1 %>
+				<% end %>
+				<% @n = 0 %>
+			</ul>
+		</nav>
     <% else %>
     <div class="topblue">
       <form class="signinform">

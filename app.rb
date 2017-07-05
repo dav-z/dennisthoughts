@@ -14,6 +14,8 @@ require './models'
 
 before do
   current_user
+  @n = 0
+  @nav = [{link: "/", text: "Home"},{link: "/p/profile", text: "Profile"},{link: "/", text: "Random User Posts"},{link: "/faq", text: "FAQ"}]
 end
 
 get '/' do
@@ -34,6 +36,14 @@ end
 get '/logout' do
   session[:user_id] = nil
   redirect '/'
+end
+
+get '/p/profile' do
+  erb :profile
+end
+
+get '/faq' do
+  erb :home
 end
 
 def current_user
