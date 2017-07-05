@@ -119,6 +119,10 @@ h1 {
   font-size: 30px;
   letter-spacing: 3px;
 }
+li a {
+  text-decoration: none;
+  color: inherit;
+}
 .profileBody {
   margin: auto;
   width: 70%;
