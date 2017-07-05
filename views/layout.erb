@@ -24,7 +24,15 @@
         <input type="submit" >
       </form>
     </div>
-
+    <nav>
+			<ul class="navUl">
+			  <% while @n < @nav.length %>
+  				<li> <a class ="navLink" href="<%= @nav[@n][:link] %>"><%= @nav[@n][:text] %></a></li>
+  				<% @n += 1 %>
+				<% end %>
+				<% @n = 0 %>
+			</ul>
+		</nav>
     <% else %>
     <div class="topblue">
       <form class="signinform">
