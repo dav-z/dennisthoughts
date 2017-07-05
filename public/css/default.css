@@ -6,8 +6,17 @@ body{
   margin: 0;
   padding: 0;
 }
+nav{
+  text-align: center;
+}
 .navUl {
   list-style: none;
+  text-align: center;
+  display: inline-block;
+  width: 100%
+}
+.navUl div {
+  width: 100%;
 }
 .topblue {
   height: 70px;
