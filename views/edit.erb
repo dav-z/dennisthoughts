@@ -7,9 +7,11 @@
     </div>
     <div class="posts">
       <div class="onepost">
-        <h2><%= @post.title %></h2>
-        <p><%= @post.body %></p>
-        <a href="/<%= @post.user.username %>/<%= @post.id %>/edit">Edit</a> | <a href="/post/<%= @post.id %>/delete">Delete</a>
+        <form method="post">
+          <input name="title" maxlength="50" value="<%= @post.title %>"><br>
+          <textarea name="body" maxlength="150"><%= @post.body %></textarea><br>
+          <input type="submit" value="Save">
+        </form>
       </div>
     </div>
   </div>

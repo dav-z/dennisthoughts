@@ -1,7 +1,7 @@
 <% if @current_user %>
   <form class="newpost" method="post">
-    <input name="title" placeholder="Title">
-    <textarea name="body" placeholder="Some Shitty Thoughts..."></textarea><br>
+    <input name="title" maxlength="50" placeholder="Title">
+    <textarea name="body" maxlength="150" placeholder="Some Shitty Thoughts..."></textarea><br>
     <div class="submitbutton"><input type="submit" value="Post"></div>
   </form>
   <div class="profileBody">

@@ -137,3 +137,10 @@ li a {
 .profileBody table {
   margin: auto;
 }
+.onepost input {
+  width: 90%;
+}
+.onepost textarea {
+  height: 100px;
+  width: 90%;
+}
