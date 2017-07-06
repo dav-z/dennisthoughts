@@ -16,7 +16,5 @@ User.create([
 ])
 
 Post.create([
-  {user_id: 8, title: 'Ducks are great', body: 'Ducks are the best pets to operate on.  They love bread, so they always have money to pay on time.'},
-  {user_id: 8, title: 'Johnny Nmemonic is the Greatest Movie of our time', body: 'Johnny Nmemonic needs his room service.  This tour de fource from Keanu Reeves forever transformed the genre of futuristic action thrillers.  The dolphin hacker single-finnedly convinced me to devote my energy towards attaining its level of sonar coding dominance.  One day I will also fry Dolph Lundgren with the power of my coding abilities.'},
-  {user_id: 8, title: 'What is all this?', body: 'This is madness, madness I tell you!'}
+  {user_id: 4, title: 'I really suck', body: 'Wow, I can not believe I suck so bad. My mother would be ashamed.'}
 ])

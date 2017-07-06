@@ -11,6 +11,7 @@ enable :sessions
 set :database, {adapter: "sqlite3", database: "db/hack.db"}
 # models.rb requires database connection, so include that only after database is configured
 require './models'
+require 'pp'
 
 before do
   @current_user = session[:user_id] ? User.find(session[:user_id]) :nil
@@ -40,9 +41,13 @@ post '/sign-up' do
             username: params[:username],
             bio: params[:bio],
             password: params[:password])
-  if @user.save
+  if User.find_by( username: params[:username] )
+    flash[:notice] = "Nah, pick another name."
+    redirect '/signup'
+  elsif @user.save
     redirect '/signin'
   else
+    flash[:notice] = "Nope."
     redirect '/signup'
   end
 end
@@ -103,6 +108,27 @@ post '/account' do
     flash[:message] = "Looks like you gave us an incorrect password.  Hack blocked!!"
   end
   redirect '/account'
+end
+
+get '/:username/:post_id/edit' do
+  @user = User.find_by(username:params[:username])
+  @post = Post.find( params[:post_id] )
+  erb :edit
+end
+
+post '/:username/:post_id/edit' do
+  @post = Post.find( params[:post_id] )
+  pp @post
+  if @post.user_id == @current_user.id
+    @post.update(
+      title: params[:title],
+      body: params[:body]
+    )
+    redirect '/'+@current_user.username+'/'+@post.id.to_s+''
+  else
+    flash[:message] = "Cannot edit post!"
+    redirect '/:username/:post_id/'
+  end
 end
 
 get '/:username' do
