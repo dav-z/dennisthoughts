@@ -18,7 +18,8 @@ before do
 end
 
 get '/' do
-  @posts = Post.order( id: :desc )
+  # @posts = Post.order( id: :desc )
+  @posts = Post.recent
   erb :home
 end
 
@@ -128,10 +129,11 @@ post '/:username/:post_id/edit' do
       title: params[:title],
       body: params[:body]
     )
-    redirect '/'+@current_user.username+'/'+@post.id.to_s+''
+    #redirect '/'+@current_user.username+'/'+@post.id.to_s+''
+    redirect "/#{@current_user.username}/#{@post.id}"
   else
     flash[:message] = "Cannot edit post!"
-    redirect '/:username/:post_id/'
+    redirect "/#{@current_user.username}/#{@post.id}"
   end
 end
 

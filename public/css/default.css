@@ -54,7 +54,7 @@ li a {
   text-align: center;
 }
 .signinbox a {
-  color: lightgrey;
+  color: grey;
 }
 .signinform {
   width: 100%;
@@ -69,7 +69,7 @@ li a {
 }
 .faq {
   margin: auto;
-  font-size: 22px;
+  font-size: 20px;
   width: 70%;
   letter-spacing: 2px;
   line-height: 30px;
@@ -143,4 +143,14 @@ li a {
 .onepost textarea {
   height: 100px;
   width: 90%;
+}
+.bio {
+  height: 150px;
+  width: 300px;
+  resize: none;
+}
+.bio2 {
+  width: 90%;
+  height: 150px;
+  resize: none;
 }
