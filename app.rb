@@ -8,7 +8,9 @@ require 'sinatra/flash'
 # allows sinatra flash to work
 enable :sessions
 # configure database
-set :database, {adapter: "sqlite3", database: "db/hack.db"}
+configure :development, :test do
+  set :database, {adapter: "sqlite3", database: "db/hack.db"}
+end
 # models.rb requires database connection, so include that only after database is configured
 require './models'
 require 'pp'
