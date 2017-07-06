@@ -11,6 +11,9 @@ enable :sessions
 configure :development, :test do
   set :database, {adapter: "sqlite3", database: "db/hack.db"}
 end
+configure :production do
+  require 'pg'
+end
 # models.rb requires database connection, so include that only after database is configured
 require './models'
 require 'pp'
