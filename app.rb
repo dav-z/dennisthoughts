@@ -149,7 +149,11 @@ end
 
 get '/:id/destroy' do
   @user = User.find(params[:id])
-  if @user.destroy
+  User.transaction do
+    @user.posts.destroy_all
+    @user.destroy
+  end
+  if User.where(id: @user.id).empty?
     flash[:message] = "Account deleted."
     session[:user_id] = nil
     redirect '/'
